@@ -5,7 +5,7 @@ Robot vigilante para estar de guardia en la robobatalla.
 
 Es un robot para la materia de Mecatronica Aplica, el robot va a trabajar en un asilo detectando personas caídas o si tienen alguna emergencia que puedan hacer alguna señal al robot para enviar la alerta a una aplicación mientras el robot patrulla dentro de un área,  va a seguir una línea el robot que es lo que a nosotros se nos hacía más fácil,  tiene que trabajar en automático.
 
-# Componentes:
+# Componentes relevantes:
 - Arduino mega
 - Cámara huskylens
 - Seguidor de línea qtr-8a
@@ -29,8 +29,20 @@ Es un robot para la materia de Mecatronica Aplica, el robot va a trabajar en un 
 Maquina de estados
 Ademas de procurar tener una buena estructura modular, separando los archivos de cada componente para que sea facil de detectar fallas.
 
-# Fase 1 
+# Fase 0
 Probar que funcionen los compenentes por separado, para entender como funcionan y por si hay alguna falla en el hardware haya tiempo para arreglarlo. 
+
+# Fase 1 
+Refinar el codigo, crear clases cuando se pueda y evitar tener todo en un solo archivo.
+Implementar una maquina de estados muy primitiva.
+
+# Fase 2
+Empezar a implementar las funcionalidades basicas del robot y unir los modulos en la maquina de estados coherente.
+
+# Fase 3
+Ajustar detalles y arreglar errores
+
+# Profundizar en componentes
 
 ## Lecturas del huskylens
 https://youtu.be/E140gPLPz4A?si=2EMIuysWRlCKQAyY&t=1490
@@ -50,6 +62,8 @@ https://youtu.be/XCyRXMvVSCw?si=MpEgV4WczVPrpx8V
 ## Lecturas seguidor de linea qtr-8a
 https://youtu.be/80O2q3_rfFw?si=a85RyeK9PMbEcW0w
 
+# Profundizar en funciones 
+
 ## Aplicación por bluetooth
 Que funcione solo como salida de alertas
 
@@ -59,9 +73,6 @@ https://www.youtube.com/watch?v=aE8EbDmrUfQ
 
 - Usa app inventor
 https://www.youtube.com/watch?v=aQcJ4uHdQEA
-
-# Fase 2
-Empezar a implementar las funcionalidades del robot y unir los modulos en la maquina de estados
 
 ## Funcion seguir linea
 Opcion primitiva
@@ -77,7 +88,4 @@ No se que tan util sea
 La logica que sigue es que si el frente esta bloqueado entonces gira a la direccion en la que hay mas espacio 
 
 ## Funcion detectar emergencia
-
-# Fase 3
-Ajustar detalles y arreglar errores
-
+No se como voy a hacer esto 
