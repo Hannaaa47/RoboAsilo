@@ -8,3 +8,6 @@ Y el sketch ClaseDeSensoreUltrasonicos, implemente una **clase**, para ver si po
 
 Los demas archivos deben de ser una lectura simple de los sensores.
 
+Hoy 30/04/2026 aprendi la importancia de no usar motores con la lap conectada pq a veces explota, por suerte nomas se apago mi lap y creo que no le paso nada pero si me asuste.
+Senti que avance bastante, tengo el codigo de los motores, el bluetooth y los ultrasonicos. Falta probarlo pero ahi va.
+
