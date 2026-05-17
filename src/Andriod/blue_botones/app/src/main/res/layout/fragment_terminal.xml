@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#121212"
+    android:padding="12dp">
+
+    <!-- Header -->
+    <TextView
+        android:text="TERMINAL BLE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00E5FF"
+        android:textSize="13sp"
+        android:letterSpacing="0.2"
+        android:fontFamily="monospace"
+        android:paddingBottom="8dp"/>
+
+    <!-- Estado de conexión -->
+    <TextView
+
+        android:id="@+id/tv_estado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:paddingBottom="10dp"
+        android:text="● Desconectado"
+        android:textColor="#FF5252"
+        android:textSize="14sp" />
+
+    <!-- Botón buscar -->
+    <Button
+        android:id="@+id/btn_buscar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="BUSCAR DISPOSITIVOS"
+        android:textColor="#121212"
+        android:backgroundTint="#00E5FF"
+        android:textSize="13sp"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Lista de dispositivos encontrados -->
+    <ListView
+        android:id="@+id/list_dispositivos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#1E1E1E"
+        android:divider="#2A2A2A"
+        android:dividerHeight="1dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Layout que aparece al conectar -->
+    <LinearLayout
+        android:id="@+id/layout_conectado"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Log de mensajes -->
+        <ScrollView
+            android:id="@+id/scroll_mensajes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0D0D0D"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tv_mensajes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#B0BEC5"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingMultiplier="1.4"
+                android:text=""/>
+        </ScrollView>
+
+        <!-- Input de mensaje -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_mensaje"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="Escribe un mensaje..."
+                android:textColor="#ECEFF1"
+                android:textColorHint="#546E7A"
+                android:backgroundTint="#2A2A2A"
+                android:textSize="14sp"
+                android:fontFamily="monospace"
+                android:inputType="text"
+                android:imeOptions="actionSend"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:background="#1E1E1E"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btn_enviar"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="ENVIAR"
+                android:textColor="#121212"
+                android:backgroundTint="#69F0AE"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!-- Botón desconectar -->
+        <Button
+            android:id="@+id/btn_desconectar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="DESCONECTAR"
+            android:textColor="#ECEFF1"
+            android:backgroundTint="#B71C1C"
+            android:textSize="13sp"
+            android:letterSpacing="0.1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,91 +1,10 @@
 # **RoboAsilo**
 
 # Descripción
-Robot vigilante para estar de guardia en la robobatalla.
+Al principio iba a ser un robot vigilante para estar de guardia en la robobatalla. Pero despues se decidio que mejor iba a pelear. 
 
-Es un robot para la materia de Mecatronica Aplica, el robot va a trabajar en un asilo detectando personas caídas o si tienen alguna emergencia que puedan hacer alguna señal al robot para enviar la alerta a una aplicación mientras el robot patrulla dentro de un área,  va a seguir una línea el robot que es lo que a nosotros se nos hacía más fácil,  tiene que trabajar en automático.
+El software consta de dos partes:
+La del **arduino** UNO que esta programada en Arduino IDE, se conecta por bluetooth al celular y funciona con una pequeña maquina de estados que controla los motores y el arma.
 
-# Componentes relevantes:
-- Arduino mega
-- Cámara huskylens
-- Seguidor de línea qtr-8a
-- 3 sensores ultrasónicos
-- Motores con encoder integrado bts7960
-- Sensor imu mpu-6050
+La parte del **celular**, esto fue lo mas tardado, encontrar la libreria correcta para conectar el bluetooth, trate de hacerlo para ios tambien pero me ondie y no encontre una libreria de flutter que fuera compatible con todo, asi que al final la hice en andriod studio. La app tiene la opcion de mandar mensajes en la terminal o usar un control con botones mas bonito.
 
-# Funcionalidades
-- Aplicación por bluetooth
-- Lecturas del huskylens
-    - Funcion detectar emergencia
-- Funciones basicas motores
-- Lecturas encoder
-- Lecturas IMU
-- Lecturas seguidor de linea 
-    - Funcion seguir linea
-- Lecturas ultrasonicos
-    - Funcion evadir obstáculos
-
-# Arquitectura
-Maquina de estados
-Ademas de procurar tener una buena estructura modular, separando los archivos de cada componente para que sea facil de detectar fallas.
-
-# Fase 0
-Probar que funcionen los compenentes por separado, para entender como funcionan y por si hay alguna falla en el hardware haya tiempo para arreglarlo. 
-
-# Fase 1 
-Refinar el codigo, crear clases cuando se pueda y evitar tener todo en un solo archivo.
-Implementar una maquina de estados muy primitiva.
-
-# Fase 2
-Empezar a implementar las funcionalidades basicas del robot y unir los modulos en la maquina de estados coherente.
-
-# Fase 3
-Ajustar detalles y arreglar errores
-
-# Profundizar en componentes
-
-## Lecturas del huskylens
-https://youtu.be/E140gPLPz4A?si=2EMIuysWRlCKQAyY&t=1490
-
-## Lecturas ultrasonicos
-https://www.youtube.com/watch?v=n-gJ00GTsNg
-
-## Funciones puente H bts7960
-https://www.youtube.com/watch?v=QNr5GDi4eHI
-
-## Lecturas encoder
-https://www.youtube.com/watch?v=ADPpHxj5Nbg
-
-## Lecturas IMU mpu-6050
-https://youtu.be/XCyRXMvVSCw?si=MpEgV4WczVPrpx8V
-
-## Lecturas seguidor de linea qtr-8a
-https://youtu.be/80O2q3_rfFw?si=a85RyeK9PMbEcW0w
-
-# Profundizar en funciones 
-
-## Aplicación por bluetooth
-Que funcione solo como salida de alertas
-
-Opciones: 
-- Usar android studio 
-https://www.youtube.com/watch?v=aE8EbDmrUfQ
-
-- Usa app inventor
-https://www.youtube.com/watch?v=aQcJ4uHdQEA
-
-## Funcion seguir linea
-Opcion primitiva
-https://www.youtube.com/watch?v=fHo2RYgrmJw
-
-Segunda opcion 
-https://www.youtube.com/watch?v=bZJYAhzlYa0&t=5s
-
-## Funcion evadir obstáculo
-https://www.youtube.com/watch?v=dO3eBJTHg68
-
-No se que tan util sea
-La logica que sigue es que si el frente esta bloqueado entonces gira a la direccion en la que hay mas espacio 
-
-## Funcion detectar emergencia
-No se como voy a hacer esto 
