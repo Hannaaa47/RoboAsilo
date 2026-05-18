@@ -51,6 +51,7 @@ public class ControlFragment extends Fragment implements MainActivity.BleListene
         view.findViewById(R.id.btn_sierra_on).setOnClickListener(v -> enviarCmd("X"));
         view.findViewById(R.id.btn_sierra_off).setOnClickListener(v -> enviarCmd("O"));
         view.findViewById(R.id.btn_stop).setOnClickListener(v -> enviarCmd("S"));
+        view.findViewById(R.id.btn_centro).setOnClickListener(v -> enviarCmd("P"));
     }
 
     /** Envía un comando al Arduino y muestra feedback visual */

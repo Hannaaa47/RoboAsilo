@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 /*
-PINES DEL ARDUINO MEGA
+//PINES DEL ARDUINO MEGA
 #define PIN_SIERRA_RPWM 9
 #define PIN_SIERRA_LPWM 10
 #define PIN_SIERRA_R    26
@@ -19,46 +19,22 @@ PINES DEL ARDUINO MEGA
 #define PIN_BLE_TX 18
 #define PIN_BLE_RX 19
 */
-/*
-//PINES DEL ARDUINO UNO
-#define PIN_SIERRA_RPWM A0
-#define PIN_SIERRA_LPWM A1
-#define PIN_SIERRA_R    A2
-#define PIN_SIERRA_L    A3
 
-#define PIN_MOT_IZQ_RPWM 7
-#define PIN_MOT_IZQ_LPWM 8
-#define PIN_MOT_IZQ_R    9
-#define PIN_MOT_IZQ_L    10
+#define PIN_SIERRA_RPWM 11   
+#define PIN_SIERRA_LPWM 4    
+#define PIN_SIERRA_R    A0  
+#define PIN_SIERRA_L    A1   
 
-#define PIN_MOT_DER_RPWM 5
-#define PIN_MOT_DER_LPWM 6
-#define PIN_MOT_DER_R    11
-#define PIN_MOT_DER_L    12
+#define PIN_MOT_IZQ_RPWM 9   
+#define PIN_MOT_IZQ_LPWM 10  
+#define PIN_MOT_IZQ_R    7  
+#define PIN_MOT_IZQ_L    8  
 
-#define PIN_BLE_TX 2
-#define PIN_BLE_RX 3
-*/
-//version 3
-// ===== SIERRA =====
-#define PIN_SIERRA_RPWM 11   // PWM (velocidad)
-#define PIN_SIERRA_LPWM 4    // (no PWM, no necesario pero definido)
-#define PIN_SIERRA_R    A0   // Dirección / enable
-#define PIN_SIERRA_L    A1   // Dirección / enable
+#define PIN_MOT_DER_RPWM 5   
+#define PIN_MOT_DER_LPWM 6   
+#define PIN_MOT_DER_R    12  
+#define PIN_MOT_DER_L    13  
 
-// ===== MOTOR IZQUIERDO =====
-#define PIN_MOT_IZQ_RPWM 9   // PWM
-#define PIN_MOT_IZQ_LPWM 10  // PWM
-#define PIN_MOT_IZQ_R    7   // Dirección
-#define PIN_MOT_IZQ_L    8   // Dirección
-
-// ===== MOTOR DERECHO =====
-#define PIN_MOT_DER_RPWM 5   // PWM
-#define PIN_MOT_DER_LPWM 6   // PWM
-#define PIN_MOT_DER_R    12  // Dirección
-#define PIN_MOT_DER_L    13  // Dirección
-
-// ===== BLUETOOTH =====
 #define PIN_BLE_TX 2
 #define PIN_BLE_RX 3
 
@@ -96,20 +72,18 @@ void sierra(bool on) {
   if (on == sierraEncendida) return;
 
   if (on) {
-    // Encendido progresivo
     for (int v = 0; v <= 255; v += 5) {
       analogWrite(PIN_SIERRA_RPWM, v);
       analogWrite(PIN_SIERRA_LPWM, 0);
-      delay(10);
+      delay(20);
     }
     sierraEncendida = true;
 
   } else {
-    // Apagado progresivo
     for (int v = 255; v >= 0; v -= 5) {
       analogWrite(PIN_SIERRA_RPWM, v);
       analogWrite(PIN_SIERRA_LPWM, 0);
-      delay(10);
+      delay(20);
     }
 
     analogWrite(PIN_SIERRA_RPWM, 0);
@@ -122,7 +96,6 @@ void sierra(bool on) {
 void detener() {
   motorIzq(0);
   motorDer(0);
-  sierra(false);
 }
 
 void setup() {
@@ -144,6 +117,7 @@ void setup() {
   digitalWrite(PIN_SIERRA_L, HIGH);
 
   detener();
+  sierra(false);
 
   Serial.println("Listo.");
 }
@@ -160,27 +134,27 @@ void loop() {
   cmd = toupper(cmd);
 
   switch (cmd) {
-    case 'F': // adelante
+    case 'F': 
       motorIzq(230);
       motorDer(230);
       Serial.println("Adelante");
       break;
 
-    case 'B': // atras
+    case 'B': 
       motorIzq(-230);
       motorDer(-230);
       Serial.println("Atras");
       break;
 
-    case 'L': // girar izquierda
-      motorIzq(-230);
-      motorDer(230);
+    case 'L': 
+      motorIzq(-150);
+      motorDer(150);
       Serial.println("Girando izquierda");
       break;
 
-    case 'R': // girar derecha
-      motorIzq(230);
-      motorDer(-230);
+    case 'R': 
+      motorIzq(150);
+      motorDer(-150);
       Serial.println("Girando derecha");
       break;
 
@@ -193,9 +167,15 @@ void loop() {
       sierra(false);
       Serial.println("Sierra apagada");
       break;
+
+    case 'P':
+      detener();
+      Serial.println("Parking");
+      break;
     
     case 'S': // stop
       detener();
+      sierra(false);
       Serial.println("Paren todo");
       break;
 
